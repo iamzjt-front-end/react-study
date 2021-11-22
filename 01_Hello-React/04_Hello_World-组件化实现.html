@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <div id="app"></div>
+
+    <!-- 添加react的依赖 -->
+    <script src="https://unpkg.com/react@17/umd/react.development.js" crossorigin></script>
+    <script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js" crossorigin></script>
+    <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+
+    <!-- 开始开发 -->
+    <script type="text/babel">
+        // 封装App组件
+        class App extends React.Component {
+
+            constructor() {
+                super(); // 有继承必须先调一下super，初始化父类实例
+                this.message = "Hello World";
+            }
+
+            render() {
+                return (
+                    <div>
+                        <h2>{this.message}</h2>
+                        <button onClick={this.btnClick.bind(this)}>改变文本</button>
+                    </div>
+                )
+            }
+
+            btnClick() {
+                // console.log("按钮发生了点击");
+                console.log(this); // undefined
+                this.message = "Hello React";
+            }
+        }
+
+        // 渲染组件
+        ReactDOM.render(<App/>, document.getElementById("app"));
+    </script>
+</body>
+</html>
