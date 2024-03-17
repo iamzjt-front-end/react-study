@@ -1,3 +1,3 @@
 # react-study
 
-react learn record
+React learn record
